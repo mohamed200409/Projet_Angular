@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
+import { Home } from './home/home';
 import { ConferanceList } from './conferance-list/conferance-list';
-import { Body } from './body/body';
 import { NotFound } from './not-found/not-found';
+import { ConferanceDetails } from './conferance-details/conferance-details';
 
 export const routes: Routes = [
- 
 
-  { path: 'conferences', component: ConferanceList },
-  { path: 'body', component: Body },
-  { path: '', redirectTo: 'body', pathMatch: 'full' },
-  { path: '**', component: NotFound },
+{path:'',redirectTo:'home',pathMatch:'full'},
+
+{path:'details/:id',component:ConferanceDetails},
+
+{path:'home',component:Home},
+{path:'list',component:ConferanceList},
+{path:'**',component:NotFound},
 ];

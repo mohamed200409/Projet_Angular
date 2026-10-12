@@ -1,2 +1,23 @@
-{{conf().name}} - {{conf().date}} - {{conf().location}}
-<button (click)="inc()">+</button>
+<h2>Conference Details</h2>
+
+@if (conf(); as c) {
+  <div class="card">
+
+    <img
+      src="https://images.unsplash.com/photo-1540575467063-178a50c2df87"
+      alt="Conference"
+    />
+
+    <div class="card-content">
+      <h3>{{ c.name }}</h3>
+
+      <p>🆔 {{ c.id }}</p>
+      <p>📅 {{ c.date }}</p>
+      <p>📍 {{ c.place }}</p>
+
+    </div>
+    <button routerLink="/list">Back to list</button>
+  </div>
+} @else {
+  <p class="not-found">Conference {{ id() }} not found</p>
+}
